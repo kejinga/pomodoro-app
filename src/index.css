@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   全局样式 — 暖白浅色主题 × 番茄红
+   参考配色: 背景 #F3EFE7 / 番茄红 #C05040 / 文字 #5C4A4A
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: transparent !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  font-family: "SF Pro Display", "SF Pro Text", Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- 拖拽区域 ---- */
+.drag-region {
+  -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* ---- 按钮悬停动画 ---- */
+.btn-apple {
+  transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.btn-apple:hover {
+  transform: scale(1.05);
+}
+
+.btn-apple:active {
+  transform: scale(0.95);
+}
+
+/* ---- 自定义滚动条 ---- */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================
+   浅色主题（默认）— 暖白奶油调
+   ============================================ */
+:root {
+  --ring-track: rgba(92, 74, 74, 0.10);   /* 环形进度条轨道 */
+}
+
+/* ---- App 背景 — 暖奶油白 ---- */
+.app-bg {
+  background: linear-gradient(160deg, #F7F2EB 0%, #F0E8DD 40%, #F2E9E3 100%);
+}
+
+/* ---- 暗色模式覆写 ---- */
+.dark .app-bg {
+  background: transparent;
+}
+
+/* ---- 环形进度条轨道 ---- */
+.ring-bg {
+  stroke: var(--ring-track);
+}
+
+.dark .ring-bg {
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+/* ---- 主题切换按钮 ---- */
+.theme-btn {
+  background: rgba(92, 74, 74, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .theme-btn {
+  background: rgba(255, 255, 255, 0.06);
+}
